@@ -1,0 +1,65 @@
+﻿@using StudentManagement.Models;
+@model IEnumerable<Students>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br /><br />
+<div class="row">
+    <div class="col-sm-6">
+        <h2 class="text-info">Student Details</h2>
+    </div>
+    <div class="col-sm-6 text-right">
+        <a asp-action="Create" class="btn btn-info"><i class="fas fa-plus"></i>&nbsp; Add New Student</a>
+    </div>
+
+</div>
+
+
+
+<br />
+<div>
+    <table class="table table-striped border" id="myTable">
+        <thead>
+            <tr class="table-info">
+
+
+                <
+                <th>
+                    @Html.DisplayNameFor(c => c.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(c => c.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(c => c.AdmissionDate)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(c => c.ClassNameId)
+                </th>
+
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                
+                <td>@item.Name</td>
+                <td>@item.Address</td>
+                <td>@item.AdmissionDate</td>
+                
+                <td>@item.StudentClass.ClassName</td>
+
+
+            </tr>
+            }
+        </tbody>
+
+
+    </table>
+</div>

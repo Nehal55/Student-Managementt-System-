@@ -1,0 +1,136 @@
+﻿@model StudentManagement.Models.Students
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+
+
+<br />
+
+
+<h2 class="text-info">Add New Student</h2>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+
+    <div classs="well">
+
+        <div asp-validation-summary="ModelOnly" class="text-danger">
+        </div>
+
+
+
+        @*//********************@
+
+
+       
+
+        <div class="form-group row">
+
+            <div class="col-sm-2">
+                <label asp-for="Name"></label>
+
+            </div>
+
+
+            <div class="col-sm-5">
+                <input asp-for="Name" class="form-control" />
+
+            </div>
+
+
+            <span asp-validation-for="Name" class="text-danger"></span>
+
+        </div>
+
+
+        <div class="form-group row">
+
+            <div class="col-sm-2">
+                <label asp-for="Address"></label>
+
+            </div>
+
+
+            <div class="col-sm-5">
+                <input asp-for="Address" class="form-control" />
+
+            </div>
+
+
+            <span asp-validation-for="Address" class="text-danger"></span>
+
+        </div>
+
+
+
+
+
+        <div class="form-group row">
+
+            <div class="col-sm-2">
+                <label asp-for="AdmissionDate"></label>
+
+            </div>
+
+
+            <div class="col-sm-5">
+                <input asp-for="AdmissionDate" class="form-control" />
+
+            </div>
+
+
+            <span asp-validation-for="AdmissionDate" class="text-danger"></span>
+
+        </div>
+
+
+
+        <div class="form-group row">
+
+            <div class="col-sm-2">
+                <label asp-for="ClassNameId"></label>
+
+            </div>
+
+
+            <div class="col-sm-5">
+
+
+                <select asp-for="ClassNameId" asp-items="ViewBag.ClassNameId" class="form-control"></select>
+
+
+                @*<input asp-for="PClassNameIdId" class="form-control" />*@
+
+            </div>
+
+
+            <span asp-validation-for="ClassNameId" class="text-danger"></span>
+
+        </div>
+
+
+
+
+
+        <div class="form-group">
+
+            <input type="submit" class="btn btn-primary" value="Save" />
+            <a asp-action="Index" class="btn btn-success">Back to List</a>
+
+        </div>
+
+
+
+    </div>
+
+</form>
+
+@section Scripts{
+
+    @{ await Html.RenderPartialAsync(partialViewName: "_ValidationScriptsPartial");}
+
+}
+
+
